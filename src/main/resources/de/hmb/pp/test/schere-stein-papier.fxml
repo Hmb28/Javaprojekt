@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" hgap="20" vgap="20" fx:controller="de.hmb.pp.test.SchereSteinPapier">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <VBox fx:id="playerChoiceBox" alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Label fx:id="playerChoiceLabel" text="Spieler:" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        <ImageView fx:id="playerChoiceImageView" fitWidth="150.0" fitHeight="150.0" />
+    </VBox>
+
+    <VBox fx:id="computerChoiceBox" alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Label fx:id="computerChoiceLabel" text="Computer:" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        <ImageView fx:id="computerChoiceImageView" fitWidth="150.0" fitHeight="150.0" />
+    </VBox>
+
+    <HBox fx:id="playerButtons" alignment="CENTER" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button fx:id="rockButton" text="Rock" onAction="#onSteinClick"/>
+        <Button fx:id="paperButton" text="Paper" onAction="#onPapierClick" />
+        <Button fx:id="scissorsButton" text="Scissors" onAction="#onSchereClick" />
+    </HBox>
+
+    <Label fx:id="resultLabel" text="" style="-fx-font-size: 20px; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+</GridPane>
