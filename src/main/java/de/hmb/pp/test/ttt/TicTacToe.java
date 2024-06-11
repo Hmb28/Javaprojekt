@@ -1,4 +1,4 @@
-package de.hmb.pp.test;
+package de.hmb.pp.test.ttt;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

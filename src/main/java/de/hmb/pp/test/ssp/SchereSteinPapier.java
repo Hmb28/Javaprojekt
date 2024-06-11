@@ -1,4 +1,4 @@
-package de.hmb.pp.test;
+package de.hmb.pp.test.ssp;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;

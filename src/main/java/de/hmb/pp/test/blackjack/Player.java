@@ -1,4 +1,4 @@
-package de.hmb.pp.test;
+package de.hmb.pp.test.blackjack;
 
 import java.util.ArrayList;
 import java.util.List;

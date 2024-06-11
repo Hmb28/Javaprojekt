@@ -1,4 +1,4 @@
-package de.hmb.pp.test;
+package de.hmb.pp.test.util;
 
 public class EmptyDeckException extends RuntimeException {
 

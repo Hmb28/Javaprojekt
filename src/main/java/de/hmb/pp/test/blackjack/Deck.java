@@ -1,4 +1,6 @@
-package de.hmb.pp.test;
+package de.hmb.pp.test.blackjack;
+
+import de.hmb.pp.test.util.EmptyDeckException;
 
 import java.util.ArrayList;
 import java.util.Collections;
