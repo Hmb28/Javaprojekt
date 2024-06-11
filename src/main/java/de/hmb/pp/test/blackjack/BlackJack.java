@@ -32,6 +32,9 @@ public class BlackJack {
     private Player player;
     private boolean gameInProgress;
 
+    /**
+     * Initializes the game state and deals the initial cards.
+     */
     @FXML
     public void initialize() {
         deck = new Deck();
@@ -46,6 +49,10 @@ public class BlackJack {
         updateHandValuesAndStatus();
     }
 
+    /**
+     * Deals the initial cards to the dealer and player.
+     * Checks for blackjack on initial deal.
+     */
     private void dealInitialCards() {
         dealCard(dealer);
         dealCard(player);
@@ -56,6 +63,11 @@ public class BlackJack {
         checkBlackjack();
     }
 
+    /**
+     * Deals a card to the specified player and adds the card to the player's hand.
+     * Also adds the card to the appropriate grid for display.
+     * @param player The player to deal a card to
+     */
     private void dealCard(Player player) {
         Card card = deck.drawCard();
         player.addCard(card);
@@ -71,6 +83,10 @@ public class BlackJack {
         }
     }
 
+    /**
+     * Updates the hand values for the dealer and player and updates the game status.
+     * Also checks for win conditions.
+     */
     private void updateHandValuesAndStatus() {
         dealerHandValueLabel.setText("Dealer Hand: " + dealer.getHandValue());
         playerHandValueLabel.setText("Player Hand: " + player.getHandValue());
@@ -78,6 +94,9 @@ public class BlackJack {
         updateGameStatus();
     }
 
+    /**
+     * Starts a new game by resetting the game state and dealing initial cards.
+     */
     public void newGameButtonPress() {
         // Reset game state
         deck = new Deck();
@@ -97,7 +116,9 @@ public class BlackJack {
         enableButtons();
     }
 
-
+    /**
+     * Updates the game status based on the current hand values of the dealer and player.
+     */
     private void updateGameStatus() {
         if (!gameInProgress) {
             String message;
@@ -119,6 +140,13 @@ public class BlackJack {
         }
     }
 
+    /**
+     * Checks for blackjack on the initial deal.
+     * If the dealer has blackjack, the player loses.
+     * If the player has blackjack, the player wins.
+     * If both have blackjack, it is a push.
+     * If neither have blackjack, the game continues.
+     */
     private void checkBlackjack() {
         if (dealer.isBlackjack()) {
             gameStatusLabel.setText("Dealer Blackjack! You Lose.");
@@ -131,6 +159,10 @@ public class BlackJack {
         }
     }
 
+    /**
+     * Deals a card to the player and updates the hand values and game status.
+     * Also checks for bust after dealing a card.
+      */
     @FXML
     public void hitButtonPress() {
         if (gameInProgress) {
@@ -140,6 +172,10 @@ public class BlackJack {
         }
     }
 
+    /**
+     * Ends the player's turn and starts the dealer's turn.
+     * The dealer will continue to draw cards until their hand value is 17 or higher.
+     */
     @FXML
     public void standButtonPress() {
         if (gameInProgress) {
@@ -149,6 +185,10 @@ public class BlackJack {
         }
     }
 
+    /**
+     * Doubles the player's bet and deals one more card to the player.
+     * The player's turn ends after doubling down.
+     */
     @FXML
     public void doubleDownButtonPress() {
         if (gameInProgress && player.canDoubleDown()) {
@@ -162,12 +202,18 @@ public class BlackJack {
         }
     }
 
+    /**
+     * The dealer's turn. The dealer will continue to draw cards until their hand value is 17 or higher.
+     */
     private void dealerTurn() {
         while (dealer.getHandValue() < 17) {
             dealCard(dealer);
         }
     }
 
+    /**
+     * Checks if the player has busted.
+     */
     private void checkBust() {
         if (player.isBust()) {
             gameInProgress = false;
@@ -175,6 +221,9 @@ public class BlackJack {
         }
     }
 
+    /**
+     * Checks the win conditions of the game.
+     */
     private void checkWinConditions() {
         if (!gameInProgress) {
             return;
@@ -196,12 +245,19 @@ public class BlackJack {
         disableButtons();
     }
 
+    /**
+     * Disables the hit, stand, and double down buttons.
+     */
     private void disableButtons() {
         hitButton.setDisable(true);
         standButton.setDisable(true);
         doubleDownButton.setDisable(true);
     }
 
+    /**
+     * Enables the hit, stand, and double down buttons.
+
+     */
     private void enableButtons() {
         hitButton.setDisable(false);
         standButton.setDisable(false);

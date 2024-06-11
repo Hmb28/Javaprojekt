@@ -34,6 +34,9 @@ public class SchereSteinPapier {
     private Timer countdownTimer;
     private int countdownValue;
 
+    /**
+     * Handles the click event for the Schere button.
+     */
     @FXML
     protected void onSchereClick() {
         System.out.println("Schere");
@@ -41,6 +44,9 @@ public class SchereSteinPapier {
         handleReveal();
     }
 
+    /**
+     * Handles the click event for the Stein button.
+     */
     @FXML
     protected void onSteinClick() {
         System.out.println("Stein");
@@ -48,6 +54,9 @@ public class SchereSteinPapier {
         handleReveal();
     }
 
+    /**
+     * Handles the click event for the Papier button.
+     */
     @FXML
     protected void onPapierClick() {
         System.out.println("Papier");
@@ -55,6 +64,13 @@ public class SchereSteinPapier {
         handleReveal();
     }
 
+    /**
+     * Handles the reveal of the computer's choice.
+     * Disables the buttons during the countdown.
+     * Updates the labels with the player's and computer's choices.
+     * Starts a timer that counts down from 3 to 0.
+     * When the countdown reaches 0, the computer's choice is revealed.
+     */
     private void handleReveal() {
         countdownValue = 3;
         rockButton.setDisable(true);
@@ -78,6 +94,11 @@ public class SchereSteinPapier {
         countdownTimer.start();
     }
 
+    /**
+     * Reveals the computer's choice and determines the winner.
+     * Re-enables the buttons.
+     * Updates the labels with the player's and computer's choices.
+     */
     private void revealComputerChoice() {
         int randomIndex = (int) (Math.random() * choices.length);
         String computerChoice = choices[randomIndex];
@@ -93,6 +114,11 @@ public class SchereSteinPapier {
         scissorsButton.setDisable(false);
     }
 
+    /**
+     * Determines the winner of the game based on the player's and computer's choices.
+     * @param computerChoice the computer's choice
+     * @return the result of the game
+     */
     private String determineWinner(String computerChoice) {
         System.out.println("Player: " + playerChoice + ", Computer: " + computerChoice);
         if (playerChoice.equals(computerChoice)) {

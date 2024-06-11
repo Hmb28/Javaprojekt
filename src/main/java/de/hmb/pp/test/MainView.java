@@ -14,6 +14,10 @@ public class MainView {
 
     private Stage currentStage;
 
+    /**
+     * Handles the click event for the Schere-Stein-Papier button.
+     * @throws IOException if the fxml file cannot be loaded
+     */
     @FXML
     protected void onSSPClick() throws IOException {
         //open SchereSteinPapie.fxml
@@ -29,6 +33,10 @@ public class MainView {
         currentStage = stage;
     }
 
+    /**
+     * Handles the click event for the Tic-Tac-Toe button.
+     * @throws IOException if the fxml file cannot be loaded
+     */
     @FXML
     protected void onTTTClick() throws IOException {
         //open TicTacToe.fxml
@@ -45,6 +53,10 @@ public class MainView {
         stage.show();
     }
 
+    /**
+     * Handles the click event for the BlackJack button.
+     * @throws IOException if the fxml file cannot be loaded
+     */
     @FXML
     protected void onBJClick() throws IOException {
         //open BlackJack.fxml

@@ -12,6 +12,10 @@ public class Deck {
     private List<Card> cards;
     private Random random = new Random();
 
+    /**
+     * Constructor for a deck of cards.
+     * Initializes the deck with all 52 cards and shuffles them.
+     */
     public Deck() {
         cards = new ArrayList<>();
         for (Card.Suit suit : Card.Suit.values()) {
@@ -22,10 +26,17 @@ public class Deck {
         shuffle();
     }
 
+    /**
+     * Shuffles the deck of cards.
+     */
     public void shuffle() {
         Collections.shuffle(cards, random);
     }
 
+    /**
+     * Draws a card from the deck.
+     * @return the random card drawn from the deck
+     */
     public Card drawCard() {
         if (cards.isEmpty()) {
             throw new EmptyDeckException();
@@ -33,34 +44,28 @@ public class Deck {
         return cards.remove(0);
     }
 
+    /**
+     * Returns the number of cards left in the deck.
+     * @return the number of cards left in the deck
+     */
     public int size() {
         return cards.size();
     }
 
+    /**
+     * Checks if the deck is empty.
+     * @return true if the deck is empty, false otherwise
+     */
     public boolean isEmpty() {
         return cards.isEmpty();
     }
 
+    /**
+     * Returns a string representation of the deck.
+     * @return a string representation of the deck
+     */
     @Override
     public String toString() {
         return "Deck: " + cards;
-    }
-
-    public enum Suit {
-        CLUBS, DIAMONDS, HEARTS, SPADES
-    }
-
-    public enum Rank {
-        ACE(11), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(9), TEN(10), JACK(10), QUEEN(10), KING(10);
-
-        private int value;
-
-        Rank(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
     }
 }
